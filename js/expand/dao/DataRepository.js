@@ -58,17 +58,21 @@ export default class DataRepository{
   fetchNetRepository(url){
     return new Promise((resolve, reject)=> {
         fetch(url)
-            .then((response)=>response.json())
+            .then((response)=>{
+              console.log(response)
+              return response.json()
+            })
             .catch((error)=> {
+                console.log(url, error)
                 reject(error);
             }).then((responseData)=> {
+              console.log(responseData)
               if (!responseData) {
                   reject(new Error('responseData is null'));
                   return;
               }
               resolve(responseData);
               console.log('请求了网路数据');
-              // 存储网络数据
               this.saveRepository(url, responseData)
             }).done();
     })
