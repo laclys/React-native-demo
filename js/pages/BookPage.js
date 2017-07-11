@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, Navigator,Image,} from 'react-native';
+import {View, Text, StyleSheet, Navigator,Image,TouchableOpacity} from 'react-native';
 
 import TopBar from '../common/TopBar';
 import DataRepository from '../expand/dao/DataRepository';
@@ -51,12 +51,12 @@ export default class BookPage extends Component {
         title={'无二之旅'}
         style={{backgroundColor:'#FCFCFA'}}
       />
-      <View style={styles.bookContainer}>
+      <TouchableOpacity style={styles.bookContainer}>
         <View style={styles.book}>
           {image}
           {title}
         </View>
-      </View>
+      </TouchableOpacity>
     </View>
   }
 }
