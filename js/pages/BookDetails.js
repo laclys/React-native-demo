@@ -3,6 +3,7 @@ import {View, Text, StyleSheet, Navigator,Image} from 'react-native';
 import ScrollableTabView ,{ScrollableTabBar} from 'react-native-scrollable-tab-view';
 
 import TopBar from '../common/TopBar'
+import ViewUtils from '../util/ViewUtils'
 
 export default class BookDetails extends Component {
   constructor(props) {
@@ -13,12 +14,18 @@ export default class BookDetails extends Component {
         <Text style={{color:'#fff',fontSize: 17,}}>路书</Text>
     </View>    
   }
+onBack() {
+  this.props.navigator.pop();
+}
   render() {
     let user_id = this.props.items.id
     return <View style={styles.container}>
       <TopBar 
         titleView={this.renderTitleView()}
         style={{backgroundColor:'#534641'}}
+        leftButton={ViewUtils.getLeftButton(()=>{
+          this.onBack();
+        })}
       />
       <ScrollableTabView
         style={{height:44}}
