@@ -2,8 +2,12 @@ import React, {Component} from 'react';
 import {View, Text, StyleSheet, Navigator,Image} from 'react-native';
 import ScrollableTabView ,{ScrollableTabBar} from 'react-native-scrollable-tab-view';
 
-import TopBar from '../common/TopBar'
-import ViewUtils from '../util/ViewUtils'
+import TopBar from '../common/TopBar';
+import ViewUtils from '../util/ViewUtils';
+
+import BookContent from './Book/BookContent';
+import BookTourist from './Book/BookTourist';
+import BookTips from './Book/BookTips';
 
 export default class BookDetails extends Component {
   constructor(props) {
@@ -18,7 +22,7 @@ onBack() {
   this.props.navigator.pop();
 }
   render() {
-    let user_id = this.props.items.id
+    let user_id = this.props.items.user_id
     return <View style={styles.container}>
       <TopBar 
         titleView={this.renderTitleView()}
@@ -35,9 +39,9 @@ onBack() {
         tabBarUnderlineStyle={{backgroundColor:'#00B7B7',height:2}}
         renderTabBar={()=><ScrollableTabBar/>}
       > 
-        <Text tabLabel="详细行程"></Text>
-        <Text tabLabel="定制师"></Text>
-        <Text tabLabel="小贴士"></Text>
+        <BookContent tabLabel="详细行程" {...this.props} user_id={user_id}></BookContent>
+        <BookTourist tabLabel="定制师" {...this.props} user_id={user_id}></BookTourist>
+         <BookTips tabLabel="小贴士"{...this.props} user_id={user_id}></BookTips> 
       </ScrollableTabView>
     </View>
   }
