@@ -3,8 +3,10 @@ import {View, Text, StyleSheet, Navigator,Image,TouchableOpacity} from 'react-na
 
 import TopBar from '../common/TopBar';
 import DataRepository from '../expand/dao/DataRepository';
+import BookDetails from './BookDetails';
 
 const URL = 'https://api.uniqueway.com/api/app3/v1/plans?user_token=_b5kmWe8qH1b_Q5mNyGz&user_id=46481'
+
 export default class BookPage extends Component {
   constructor(props) {
     super(props);
@@ -34,6 +36,15 @@ export default class BookPage extends Component {
           console.log(error)
         })
   }
+  onSelect() {
+    this.props.navigator.push({
+      component : BookDetails,
+      params: {
+        ...this.props,
+        items:this.state.wrapperData
+      }
+    })
+  }
   render() {
     let image = this.state.wrapperData?<Image
               style={{
@@ -51,7 +62,10 @@ export default class BookPage extends Component {
         title={'无二之旅'}
         style={{backgroundColor:'#FCFCFA'}}
       />
-      <TouchableOpacity style={styles.bookContainer}>
+      <TouchableOpacity 
+        style={styles.bookContainer}
+        onPress={()=>this.onSelect()}
+      >
         <View style={styles.book}>
           {image}
           {title}
@@ -75,6 +89,7 @@ const styles = StyleSheet.create({
     height:450,
     marginTop:30,
     backgroundColor:'#FFFFFF',
+    borderRadius:3,
     shadowColor: "#000000",
     shadowOpacity: 0.8,
     shadowRadius: 4,
