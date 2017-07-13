@@ -3,6 +3,7 @@ import {View, Text, StyleSheet, Navigator,Image,ListView,RefreshControl} from 'r
 
 import DataRepository from '../../expand/dao/DataRepository';
 import ListItem from './ListItem';
+import ItemDetail from './ItemDetail';
 
 const URL = 'https://api.uniqueway.com/api/app3/v1/plans/46301/schedules?user_token=_b5kmWe8qH1b_Q5mNyGz&user_id='
 
@@ -73,10 +74,20 @@ export default class BookContent extends Component {
   getURL(URL) {
     return URL + this.props.user_id
   }
+  onSelect(item) {
+    this.props.navigator.push({
+      component:ItemDetail,
+      params:{
+        item:item,
+        ...this.props
+      }
+    })
+  }
   renderRow(data, sectionID, rowID){
     return <ListItem
       key={rowID}
       data={data}
+      onSelect={()=>this.onSelect(data)}
       /> 
   }
   render() {

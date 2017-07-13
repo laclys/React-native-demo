@@ -17,8 +17,10 @@ export default class ListItem extends Component {
     console.log(this.poiArr);
   }
   render() {
-    return <TouchableOpacity style={styles.container}
+    return <TouchableOpacity
+      style={styles.container}
       key={this.props.data.day}
+      onPress={this.props.onSelect}
     >
       <View style={styles.list_wrapper}>
         <View style={styles.day_wrapper}>
