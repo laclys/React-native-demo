@@ -76,7 +76,30 @@ export default class BookTourist extends Component {
           source={{uri:this.state.touristData.avatar_url}}
           resizeMode={'cover'}
         />
-
+        <View style={styles.tourist_name}>
+          <Text
+            style={{
+              fontSize:20,
+              color:'#3A3331',
+              fontWeight:'bold'
+                }}
+          >{this.state.touristData.name}</Text>
+          <Text
+            style={{
+              marginTop:3,
+              fontSize:10,
+              color:'#665D5A',
+              fontWeight:'bold'
+                }}
+          >· 定制师 ·</Text>
+        </View>
+        <View style={{
+          alignSelf:'center',
+          height:2,
+          width:20,
+          backgroundColor:'black'
+        }}></View>
+        <Text style={styles.text_content}>{this.state.touristData.bio}</Text>
       </ScrollView>
     </View>
   }
@@ -90,5 +113,20 @@ const styles = StyleSheet.create({
     flex:1,
     width:null,
     height:250
+  },
+  tourist_name:{
+    flex:1,
+    flexDirection:'column',
+    alignItems:'center',
+    alignSelf:'center',
+    height:55,
+    width:100,
+    marginTop:20,
+  },
+  text_content:{
+    padding:20,
+    lineHeight:20,
+    fontSize:14,
+    color:'#665D5A'
   }
 });
