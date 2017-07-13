@@ -17,7 +17,8 @@ export default class BookContent extends Component {
     this.state={
       result:'',
       isLoading:false,
-      dataSource:new ListView.DataSource({rowHasChanged:(r1,r2)=>r1!==r2})
+      dataSource:new ListView.DataSource({rowHasChanged:(r1,r2)=>r1!==r2}),
+      tripData:''
     }
   }
   componentDidMount(){
@@ -35,6 +36,7 @@ export default class BookContent extends Component {
         console.log(items.data);
         this.setState({
           dataSource:this.state.dataSource.cloneWithRows(items.data),
+          tripData:items.data,
           isLoading:false,
         });
       })
@@ -42,6 +44,7 @@ export default class BookContent extends Component {
           if (!items || items.length === 0)return;
           this.setState({
               dataSource: this.state.dataSource.cloneWithRows(items.data),
+              tripData:items.data,
               isLoading: false
           });
       })
@@ -79,6 +82,7 @@ export default class BookContent extends Component {
       component:ItemDetail,
       params:{
         item:item,
+        tripData:this.state.tripData,
         ...this.props
       }
     })

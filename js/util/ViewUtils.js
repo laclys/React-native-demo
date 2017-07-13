@@ -19,4 +19,17 @@ export default class ViewUtils{
       </TouchableOpacity>  
     )
   }
+  static getLeftButtonBlack(cb){
+    return(
+      <TouchableOpacity
+        style={{padding:8}}
+        onPress={cb}
+      >
+      <Image
+        style={{width:26,height:26,tintColor:'#6F6562'}}
+        source={require('../../res/img/arrow_back.png')}
+      ></Image>
+      </TouchableOpacity>  
+    )
+  }
 }
