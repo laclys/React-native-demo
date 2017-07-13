@@ -33,6 +33,10 @@ export default class ListItem extends Component {
           </View>
           <Text style={styles.text} style={styles.date}>{this.props.data.date}</Text>
         </View>
+        <Image 
+          style={styles.icon_pic}
+          source={require('../../../res/img/enter_icon.png')}
+        />
       </View> 
     </TouchableOpacity>
   }
@@ -44,7 +48,7 @@ const styles = StyleSheet.create({
   },
   list_wrapper:{
     flexDirection: 'row',
-    justifyContent: 'flex-start',
+    justifyContent: 'space-between',
     alignItems:'center',
     height:92,
     padding:10,
@@ -74,9 +78,14 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   poi_date_wrapper:{
-    marginLeft:50
+    position:'relative',
+    alignItems:'center'
   },
   date:{
     marginTop:18
+  },
+  icon_pic:{
+    width:11.5,
+    height:18.5,
   }
 })
