@@ -53,9 +53,23 @@ export default class BookTips extends Component {
     return URL + this.props.user_id
   }
   render() {
+    let script = `<script>
+          var clickTitle = document.getElementsByClassName('tip-title');
+          var clickItem = document.getElementsByClassName('tip-content');
+          for(let i=0;i<clickTitle.length;i++){
+            clickTitle[i].onclick=function(){
+            if(clickItem[i].style.display=='block'){
+              clickItem[i].style.display='none'
+            }else{
+              clickItem[i].style.display='block'
+            }
+            }
+          }
+      </script>`
+    let html =this.state.htmlData+ script;
     return <View style={styles.container}>
         <WebView
-          source={{html:this.state.htmlData}}
+          source={{html:html}}
         ></WebView>
     </View>
   }
