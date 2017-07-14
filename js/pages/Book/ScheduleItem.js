@@ -29,10 +29,10 @@ export default class ListItem extends Component {
         {this._renderIcon(result.category)}
         <View style={{flexDirection:'column'}}>
           <View style={{flexDirection:'row'}}>
-            <Text>{result.start_time}-</Text>
-            <Text>{result.end_time}</Text>
+            <Text style={styles.time}>{result.start_time}-</Text>
+            <Text style={styles.time}>{result.end_time}</Text>
           </View>
-          <Text style={{}}>{result.title}</Text>
+          <Text style={{flexWrap:'wrap',width:250,fontSize:15,color:'#3A3331'}}>{result.title}</Text>
         </View>
       </View>
     })
@@ -84,6 +84,7 @@ const styles = StyleSheet.create({
     marginBottom:20,
     textAlign:'center',
     fontSize:17,
+    fontWeight:'bold',
     color:'#3A3331',
   },
   poi_wrapper:{
@@ -97,5 +98,9 @@ const styles = StyleSheet.create({
     width:30,
     height:30,
     marginRight:15
+  },
+  time:{
+    color:'#999391',
+    fontSize:13
   }
 })
