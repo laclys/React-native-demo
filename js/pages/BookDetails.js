@@ -8,6 +8,7 @@ import ViewUtils from '../util/ViewUtils';
 import BookContent from './Book/BookContent';
 import BookTourist from './Book/BookTourist';
 import BookTips from './Book/BookTips';
+import BookCheck from './Book/BookCheck';
 
 export default class BookDetails extends Component {
   constructor(props) {
@@ -40,8 +41,9 @@ onBack() {
         renderTabBar={()=><ScrollableTabBar/>}
       > 
         <BookContent tabLabel="详细行程" {...this.props} user_id={user_id}></BookContent>
+        <BookCheck tabLabel="清单列表" {...this.props}></BookCheck>
         <BookTourist tabLabel="定制师" {...this.props} user_id={user_id}></BookTourist>
-         <BookTips tabLabel="小贴士"{...this.props} user_id={user_id}></BookTips> 
+        <BookTips tabLabel="小贴士"{...this.props} user_id={user_id}></BookTips> 
       </ScrollableTabView>
     </View>
   }
