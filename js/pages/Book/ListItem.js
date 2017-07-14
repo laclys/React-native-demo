@@ -46,7 +46,8 @@ export default class ListItem extends Component {
 
 const styles = StyleSheet.create({
   container:{
-    flex:1
+    flex:1,
+    backgroundColor:'#F7FBFB',
   },
   list_wrapper:{
     flexDirection: 'row',
