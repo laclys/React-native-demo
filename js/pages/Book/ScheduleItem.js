@@ -9,27 +9,13 @@ export default class ListItem extends Component {
   }
   _renderIcon(category) {
     let source = require('../../../res/img/poi_tips.png')
-    if(category === 'attraction') {
-      source = require('../../../res/img/poi_tip.png')
-    }
-    if(category === 'activity') {
-      source = require('../../../res/img/poi_place.png')
-    }
-    if(category === 'airport') {
-      source = require('../../../res/img/poi_airplane.png')
-    }
-    if(category === 'line') {
-      source = require('../../../res/img/poi_subway.png')
-    }
-    if(category === 'hotel') {
-      source = require('../../../res/img/poi_hotel.png')
-    }
-    if(category === 'meal') {
-      source = require('../../../res/img/poi_food.png')
-    }
-    if(category === 'flight') {
-      source = require('../../../res/img/poi_goto.png')
-    }
+    if(category === 'attraction') source = require('../../../res/img/poi_tip.png')
+    if(category === 'activity') source = require('../../../res/img/poi_place.png')
+    if(category === 'airport') source = require('../../../res/img/poi_airplane.png')
+    if(category === 'line') source = require('../../../res/img/poi_subway.png')
+    if(category === 'hotel') source = require('../../../res/img/poi_hotel.png')
+    if(category === 'meal') source = require('../../../res/img/poi_food.png')
+    if(category === 'flight') source = require('../../../res/img/poi_goto.png')
     return <Image
         style={styles.icon_poi}
         source={source}
@@ -46,23 +32,23 @@ export default class ListItem extends Component {
             <Text>{result.start_time}-</Text>
             <Text>{result.end_time}</Text>
           </View>
-          <Text>{result.title}</Text>
+          <Text style={{}}>{result.title}</Text>
         </View>
       </View>
     })
-    return <TouchableOpacity
-      style={styles.container}
-    >
-    <View style={styles.item_wrapper}>
-      <Image
-        style={styles.icon_placeholder}
-        source={require('../../../res/img/placeholder.png')}
-        resizeMode={'contain'}
-      />
-      <Text style={styles.title}>{data.title}</Text>
-      {scheduleContent}
+    return <View
+        style={styles.container}
+      >
+      <View style={styles.item_wrapper}>
+        <Image
+          style={styles.icon_placeholder}
+          source={require('../../../res/img/placeholder.png')}
+          resizeMode={'contain'}
+        />
+        <Text style={styles.title}>{data.title}</Text>
+        {scheduleContent}
+      </View>
     </View>
-    </TouchableOpacity>
   }
 }
 
