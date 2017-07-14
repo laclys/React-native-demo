@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 
+import PoiDetail from './PoiDetail';
 
-export default class ListItem extends Component {
+export default class ScheduleItem extends Component {
   constructor(props) {
     super(props);
     console.log(this.props.data);
@@ -22,10 +23,23 @@ export default class ListItem extends Component {
         resizeMode={'contain'}
       />
   }
+  onSelect(result){
+    console.log(result)
+    this.props.navigator.push({
+      component:PoiDetail,
+      params:{
+        result:result,
+        ...this.props
+      }
+    })
+  }
   render() {
     let data = this.props.data;
     let scheduleContent = data.schedule_pois.map((result,i,arr)=>{
-      return <View style={styles.poi_wrapper} key={i}>
+      return <TouchableOpacity 
+        style={styles.poi_wrapper}
+        onPress={()=>this.onSelect(result)}
+        key={i}>
         {this._renderIcon(result.category)}
         <View style={{flexDirection:'column'}}>
           <View style={{flexDirection:'row'}}>
@@ -34,7 +48,7 @@ export default class ListItem extends Component {
           </View>
           <Text style={{flexWrap:'wrap',width:250,fontSize:15,color:'#3A3331'}}>{result.title}</Text>
         </View>
-      </View>
+      </TouchableOpacity>
     })
     return <View
         style={styles.container}

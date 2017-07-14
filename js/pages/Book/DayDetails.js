@@ -23,6 +23,7 @@ export default class DayDetails extends Component {
     return <ScheduleItem
       key={rowID}
       data={data}
+      {...this.props}
     />
   }
   render() {

@@ -11,7 +11,6 @@ export default class ItemDetail extends Component {
     super(props);
     this.initialPage = this.props.item.day - 1
     this.dayCount = this.props.tripData.length
-    // console.log(this.props.tripData[0])
   }
   onBack() {
     this.props.navigator.pop();
@@ -20,7 +19,10 @@ export default class ItemDetail extends Component {
     let day_list = this.props.tripData.map((result,i,arr)=>{
       let day='D'+ result.day;
       return <DayDetails 
-        tabLabel={day} tripData={this.props.tripData[i]}  key={i}
+        {...this.props}
+        tabLabel={day} 
+        tripData={this.props.tripData[i]}
+        key={i}
         />
     })
     return <View style={styles.container}>
