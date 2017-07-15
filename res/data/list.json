@@ -1,0 +1,38 @@
+[
+  {
+    "name": "护照",
+    "checked":false
+  },
+  {
+    "name": "驾照",
+    "checked":false
+  },
+  {
+    "name": "机票预订单",
+    "checked":false
+  },
+  {
+    "name": "酒店预订单",
+    "checked":false
+  },
+  {
+    "name": "路书",
+    "checked":false
+  },
+  {
+    "name": "身份证",
+    "checked":false
+  },
+  {
+    "name": "护照",
+    "checked":false
+  },
+  {
+    "name": "车票预订单",
+    "checked":false
+  },
+  {
+    "name": "保险",
+    "checked":false
+  }
+]
