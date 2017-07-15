@@ -47,6 +47,11 @@ export default class BookCheck extends Component {
   onClick(data){
     data.checked=!data.checked;
     ArrayUtils.updateArray(this.changeValue,data);
+    this.onSave()
+  }
+  onSave(){
+    if(this.changeValue.length===0)return;
+    this.listDao.save(this.state.dataArray);
   }
   renderCheckBox(data){
     let leftText=data.name;
