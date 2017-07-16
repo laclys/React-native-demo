@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {View, Text, StyleSheet, Navigator,Image,ScrollView,Alert,TouchableOpacity} from 'react-native';
 
 import ListDao from '../../expand/dao/ListDao';
-import CheckBox from 'react-native-check-box';
+import CheckBox from '../../common/CheckBox';
 import ArrayUtils from '../../util/ArrayUtils';
 
 export default class BookCheck extends Component {
